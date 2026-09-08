@@ -1,0 +1,479 @@
+[
+  {
+    "id": 1,
+    "name": "Curry zoete aardappel en bloemkool met kip",
+    "ingredients": [
+      "Currypasta",
+      "naanbrood",
+      "zoete aardappel",
+      "bloemkool diepvries",
+      "kokosmelk",
+      "kipfilet",
+      "rijst",
+      "cashewnoten"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 2,
+    "name": "AVG",
+    "ingredients": [
+      "Diepvriesgroente",
+      "vlees en aardappels"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 3,
+    "name": "Stamppot boerenkool",
+    "ingredients": [
+      "boerenkool",
+      "aardappels",
+      "rookworst",
+      "jus"
+    ],
+    "season": "najaar/winter",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 4,
+    "name": "Stamppot rucola met chorizo en zongedroogde tomaatjes",
+    "ingredients": [
+      "aardappels",
+      "rucola",
+      "chorizo",
+      "zongedroogde tomaatjes"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 5,
+    "name": "Gnocchi met courgette en zalm",
+    "ingredients": [
+      "gnocchi",
+      "courgette",
+      "zalm",
+      "haverroom"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 6,
+    "name": "Gnocchi met tomatensaus en tonijn en doperwten",
+    "ingredients": [
+      "gnocchi",
+      "tomatenblokjes",
+      "doperwten",
+      "tonijn"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 7,
+    "name": "Gnocchi met avocadosaus  broccoli of sperziebonen en kip",
+    "ingredients": [
+      "gnocchi",
+      "avocado",
+      "broccoli",
+      "kip"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 8,
+    "name": "Pompoensoep",
+    "ingredients": [
+      "pompoen",
+      "currypasta"
+    ],
+    "season": "winter",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 9,
+    "name": "Courgettesoep met brood",
+    "ingredients": [
+      "courgettes",
+      "groene paprika",
+      "brood"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 10,
+    "name": "Lekkerbekje met rode kool en aardappels",
+    "ingredients": [
+      "lekkerbekjes",
+      "rode kool",
+      "aardappels"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 11,
+    "name": "Risotto met rode bieten en spekjes",
+    "ingredients": [
+      "risottorijst",
+      "rode bieten",
+      "spekjes",
+      "rucola",
+      "parmezaanse kaas"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 12,
+    "name": "Ovenschotel kaasroomsaus met brocolli en gehakt",
+    "ingredients": [
+      "pasta",
+      "haverroom",
+      "broccoli",
+      "gehakt",
+      "kaas"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 13,
+    "name": "Lasagne",
+    "ingredients": [
+      "lasagnebladen",
+      "pasata",
+      "heinz frito",
+      "haverroom",
+      "gehakt",
+      "courgette",
+      "spinazie",
+      "wortel"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 14,
+    "name": "Springrolls",
+    "ingredients": [
+      "rijstvel",
+      "kip",
+      "mie",
+      "komkommer",
+      "avocado",
+      "pinda's",
+      "sla",
+      "hoisinsaus"
+    ],
+    "season": "zomer",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 15,
+    "name": "Pasta spinazie a la creme met spekjes",
+    "ingredients": [
+      "pasta",
+      "spinazie a la creme",
+      "spekjes",
+      "tomaatjes"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 16,
+    "name": "Ovengroente met couscous en kip",
+    "ingredients": [
+      "peen",
+      "courgette",
+      "tomaatjes",
+      "spruitjes",
+      "couscous",
+      "kip",
+      "paprika"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 17,
+    "name": "Spruitjes gebakken met kerrie en av",
+    "ingredients": [
+      "spruitjes",
+      "kerriepoeder",
+      "kerriesaus",
+      "aardappels",
+      "vlees"
+    ],
+    "season": "najaar/winter",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 18,
+    "name": "Wraps met kipgehakt, sla en paprika, courgette",
+    "ingredients": [
+      "wraps",
+      "sla",
+      "gehakt",
+      "paprika",
+      "courgette"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 19,
+    "name": "Rijst met kipcashew",
+    "ingredients": [
+      "rijst",
+      "kip",
+      "cashewnoten",
+      "saus",
+      "paprika"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 20,
+    "name": "Rijst met biefstuk in oestersaus",
+    "ingredients": [
+      "rijst of noedels",
+      "biefstuk",
+      "oestersaus",
+      "sperziebonen of broccoli of peen of paprika"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 21,
+    "name": "Broodje hamburger met salade en zoete aardappelpatat",
+    "ingredients": [
+      "italiaanse bol",
+      "hamburger of kipburger",
+      "sla",
+      "zoete aardappel",
+      "saus",
+      "augurk"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 22,
+    "name": "Kip Teriyaki",
+    "ingredients": [
+      "kip",
+      "rijst of noedels",
+      "sperziebonen of broccoli"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 23,
+    "name": "Pasta met rode saus",
+    "ingredients": [
+      "pasta",
+      "pasata",
+      "heinz frito",
+      "haverroom",
+      "gehakt",
+      "courgette",
+      "paprika",
+      "doperwten",
+      "wortel"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 24,
+    "name": "Rijst met kip en mangosaus  en sperziebonen",
+    "ingredients": [
+      "rijst of noedels",
+      "mango",
+      "kokosmelk",
+      "sperziebonen",
+      "kip",
+      "ketjap",
+      "sojasaus"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 25,
+    "name": "Broodje shoarma",
+    "ingredients": [
+      "shoarmabroodjes",
+      "shoarmavlees",
+      "saus",
+      "sla",
+      "komkommer"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 26,
+    "name": "Quiche zalm spinazie",
+    "ingredients": [
+      "quichedeeg",
+      "spinazie",
+      "zalm",
+      "eieren",
+      "haverroom"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 27,
+    "name": "Stoofvlees",
+    "ingredients": [
+      "stoofvlees",
+      "ontbijtkoek",
+      "druivensap",
+      "peen"
+    ],
+    "season": "najaar/winter",
+    "sportMeal": false,
+    "special": true,
+    "takeaway": false
+  },
+  {
+    "id": 28,
+    "name": "Sushi afhalen",
+    "ingredients": [],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": true,
+    "takeaway": true
+  },
+  {
+    "id": 29,
+    "name": "Thais afhalen",
+    "ingredients": [],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": true,
+    "takeaway": true
+  },
+  {
+    "id": 30,
+    "name": "Romige orzo",
+    "ingredients": [
+      "orzo",
+      "haverroom",
+      "spinazie",
+      "tomaatjes",
+      "gehaktballetjes"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 31,
+    "name": "Pannenkoeken",
+    "ingredients": [
+      "bloem",
+      "melk",
+      "eieren",
+      "pompoenpuree"
+    ],
+    "season": "hele jaar",
+    "sportMeal": true,
+    "special": false,
+    "takeaway": false
+  },
+  {
+    "id": 32,
+    "name": "Patat afhalen",
+    "ingredients": [],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": true,
+    "takeaway": true
+  },
+  {
+    "id": 33,
+    "name": "nasi",
+    "ingredients": [
+      "rijst",
+      "kip",
+      "peen",
+      "paprika",
+      "doperwten",
+      "satésaus",
+      "kroepoek",
+      "eieren"
+    ],
+    "season": "hele jaar",
+    "sportMeal": false,
+    "special": false,
+    "takeaway": false
+  }
+]
