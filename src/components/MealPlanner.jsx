@@ -170,7 +170,7 @@ const MealPlanner = () => {
   return (
     <div className="meal-planner">
       <header className="planner-header">
-        <h1>🍽️ Weekmenu Planner</h1>
+        <h1>🍽️ Wat eten we vandaag?</h1>
         <div className="tab-buttons">
           <button className={`tab-btn ${activeTab === 'planner' ? 'active' : ''}`} onClick={() => setActiveTab('planner')}>
             Planner

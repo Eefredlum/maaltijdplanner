@@ -8,14 +8,17 @@
 .planner-header {
   text-align: center;
   margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 3px solid #ff6b6b;
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7c3aed 0%, #f97316 100%);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
 }
 
 .planner-header h1 {
-  color: #2c3e50;
+  color: white;
   margin-bottom: 20px;
   font-size: 2.5em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .tab-buttons {
@@ -36,14 +39,14 @@
 }
 
 .tab-btn:hover {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
+  border-color: #7c3aed;
+  color: #7c3aed;
 }
 
 .tab-btn.active {
-  background: #ff6b6b;
+  background: #7c3aed;
   color: white;
-  border-color: #ff6b6b;
+  border-color: #7c3aed;
 }
 
 /* Planner Section */
@@ -94,7 +97,7 @@
 
 .auto-fill-btn {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #f97316 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -292,7 +295,7 @@
 }
 
 .search-input:focus {
-  border-color: #ff6b6b;
+  border-color: #7c3aed;
 }
 
 .recipes-grid {
@@ -313,7 +316,7 @@
 
 .recipe-card:hover {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-  border-color: #ff6b6b;
+  border-color: #f97316;
 }
 
 .recipe-card h4 {
@@ -382,7 +385,7 @@
   background: #f8f9fa;
   padding: 20px;
   border-radius: 12px;
-  border-left: 5px solid #ff6b6b;
+  border-left: 5px solid #f97316;
   margin-bottom: 30px;
 }
 
