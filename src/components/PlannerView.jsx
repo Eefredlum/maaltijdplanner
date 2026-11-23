@@ -1,4 +1,5 @@
 import React from 'react';
+import { CATEGORY_DEFINITIONS } from '../utils/categories';
 
 const PlannerView = ({
   weekStart,
@@ -50,6 +51,11 @@ const PlannerView = ({
                   {day.recipe.sportMeal && <span className="tag tag-sport">🏋️ sport</span>}
                   {day.recipe.special && <span className="tag tag-special">⭐ speciaal</span>}
                   {day.recipe.takeaway && <span className="tag tag-takeaway">🥡 afhaal</span>}
+                  {(day.recipe.categories || []).map(cat => (
+                    <span key={cat} className="tag tag-category">
+                      {CATEGORY_DEFINITIONS.find(c => c.key === cat)?.label || cat}
+                    </span>
+                  ))}
                   <span className="tag tag-season">{day.recipe.season}</span>
                 </div>
                 {day.relaxed.length > 0 && (

@@ -1,4 +1,5 @@
 import baseRecipes from '../data/recipes.json';
+import { detectCategories } from './categories';
 
 const KEYS = {
   RECIPES: 'mealplanner.recipes',
@@ -22,8 +23,14 @@ function writeJSON(key, value) {
 
 // Backfills fields introduced after recipes were first seeded into localStorage.
 function migrateRecipe(recipe) {
-  if (recipe.takeaway !== undefined) return recipe;
-  return { ...recipe, takeaway: recipe.ingredients.length === 0 };
+  let migrated = recipe;
+  if (migrated.takeaway === undefined) {
+    migrated = { ...migrated, takeaway: migrated.ingredients.length === 0 };
+  }
+  if (migrated.categories === undefined) {
+    migrated = { ...migrated, categories: detectCategories(migrated.name, migrated.ingredients) };
+  }
+  return migrated;
 }
 
 export function getRecipes() {

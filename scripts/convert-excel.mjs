@@ -5,6 +5,7 @@
 import xlsx from 'xlsx';
 import path from 'path';
 import fs from 'fs';
+import { detectCategories } from '../src/utils/categories.js';
 
 const sourcePath = path.resolve('Import/Wat eten we vandaag.xlsx');
 const targetPath = path.resolve('src/data/recipes.json');
@@ -29,6 +30,7 @@ const recipes = rows
       special: String(row['speciaal'] || '').trim().toLowerCase() === 'x',
       // No ingredients listed means it's a takeaway order (e.g. "Sushi afhalen").
       takeaway: ingredients.length === 0,
+      categories: detectCategories(name, ingredients),
     };
   })
   .filter(r => r.name.length > 0);

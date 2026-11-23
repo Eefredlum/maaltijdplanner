@@ -1,5 +1,6 @@
 import { getCurrentSeason, isSeasonEligible } from './seasons';
 import { daysBetween } from './dates';
+import { CATEGORY_WEEKLY_LIMITS } from './categories';
 
 const NORMAL_NO_REPEAT_DAYS = 14; // geen herhaling binnen 2 weken
 const SPECIAL_NO_REPEAT_DAYS = 28; // speciale gerechten max 1x per 4 weken
@@ -12,14 +13,23 @@ function wasRecentlyUsed(recipe, date, history) {
   );
 }
 
-function filterRecipes(recipes, { date, isSportDay, history, excludeIds, specialUsedThisWeek, ignoreSeason, ignoreHistory, ignoreSport }) {
+// Would adding this recipe push any of its categories (kip/pasta/rijst) over the weekly limit?
+function exceedsCategoryLimits(recipe, categoryCounts) {
+  return (recipe.categories || []).some(
+    cat => CATEGORY_WEEKLY_LIMITS[cat] !== undefined && (categoryCounts[cat] || 0) >= CATEGORY_WEEKLY_LIMITS[cat]
+  );
+}
+
+function filterRecipes(recipes, { date, isSportDay, history, excludeIds, specialUsedThisWeek, categoryCounts, ignoreSeason, ignoreHistory, ignoreSport }) {
   const currentSeason = getCurrentSeason(new Date(date));
   const weekday = new Date(date).getDay();
   return recipes.filter(recipe => {
     if (excludeIds.has(recipe.id)) return false;
-    // Hard rules, never relaxed: afhaalmaaltijden alleen op donderdag/vrijdag/zaterdag, max 1 speciaal per week.
+    // Hard rules, never relaxed: afhaalmaaltijden alleen op donderdag/vrijdag/zaterdag,
+    // max 1 speciaal per week, max N keer per week per categorie (kip/pasta/rijst).
     if (recipe.takeaway && !ALLOWED_TAKEAWAY_WEEKDAYS.includes(weekday)) return false;
     if (recipe.special && specialUsedThisWeek) return false;
+    if (exceedsCategoryLimits(recipe, categoryCounts)) return false;
     if (!ignoreSeason && !isSeasonEligible(recipe.season, currentSeason)) return false;
     if (!ignoreHistory && wasRecentlyUsed(recipe, date, history)) return false;
     if (!ignoreSport && isSportDay && !recipe.sportMeal) return false;
@@ -33,7 +43,7 @@ function pickRandom(list) {
 }
 
 // Tries progressively relaxed constraint sets so a suggestion is (almost) always found.
-export function pickMealForDay({ date, isSportDay, recipes, history, excludeIds, specialUsedThisWeek = false }) {
+export function pickMealForDay({ date, isSportDay, recipes, history, excludeIds, specialUsedThisWeek = false, categoryCounts = {} }) {
   const attempts = isSportDay
     ? [
         { ignoreSeason: false, ignoreHistory: false, ignoreSport: false },
@@ -53,7 +63,7 @@ export function pickMealForDay({ date, isSportDay, recipes, history, excludeIds,
       ];
 
   for (const attempt of attempts) {
-    const candidates = filterRecipes(recipes, { date, isSportDay, history, excludeIds, specialUsedThisWeek, ...attempt });
+    const candidates = filterRecipes(recipes, { date, isSportDay, history, excludeIds, specialUsedThisWeek, categoryCounts, ...attempt });
     const recipe = pickRandom(candidates);
     if (recipe) {
       const relaxed = [];
@@ -69,6 +79,7 @@ export function pickMealForDay({ date, isSportDay, recipes, history, excludeIds,
 export function generateWeekPlan({ weekDays, sportDayMap, recipes, history }) {
   const excludeIds = new Set();
   let specialUsedThisWeek = false;
+  const categoryCounts = {};
   return weekDays.map(day => {
     const isSportDay = !!sportDayMap[day.isoDate];
     const { recipe, relaxed } = pickMealForDay({
@@ -78,10 +89,14 @@ export function generateWeekPlan({ weekDays, sportDayMap, recipes, history }) {
       history,
       excludeIds,
       specialUsedThisWeek,
+      categoryCounts,
     });
     if (recipe) {
       excludeIds.add(recipe.id);
       if (recipe.special) specialUsedThisWeek = true;
+      (recipe.categories || []).forEach(cat => {
+        categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+      });
     }
     return { ...day, isSportDay, recipe, relaxed };
   });
@@ -93,5 +108,11 @@ export function rerollDay({ day, sportDayMap, recipes, history, otherWeekRecipes
   const excludeIds = new Set(otherWeekRecipes.map(r => r.id));
   if (day.recipe) excludeIds.add(day.recipe.id);
   const specialUsedThisWeek = otherWeekRecipes.some(r => r.special);
-  return pickMealForDay({ date: day.date, isSportDay, recipes, history, excludeIds, specialUsedThisWeek });
+  const categoryCounts = {};
+  otherWeekRecipes.forEach(r => {
+    (r.categories || []).forEach(cat => {
+      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+    });
+  });
+  return pickMealForDay({ date: day.date, isSportDay, recipes, history, excludeIds, specialUsedThisWeek, categoryCounts });
 }

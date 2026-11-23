@@ -362,6 +362,11 @@
   color: #ad1457;
 }
 
+.tag-category {
+  background: #ede7f6;
+  color: #5e35b1;
+}
+
 .tag-season {
   background: #f3e5f5;
   color: #6a1b9a;
@@ -401,6 +406,12 @@
   border: 2px solid #e0e0e0;
   border-radius: 8px;
   font-size: 14px;
+}
+
+.category-checkboxes {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
 .recipe-form-actions {

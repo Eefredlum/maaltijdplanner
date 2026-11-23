@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { addRecipe, updateRecipe, deleteRecipe } from '../utils/storage';
+import { CATEGORY_DEFINITIONS } from '../utils/categories';
 
 const SEASON_OPTIONS = ['hele jaar', 'zomer', 'winter', 'najaar/winter'];
 
-const emptyForm = { name: '', ingredients: '', season: 'hele jaar', sportMeal: false, special: false };
+const emptyForm = { name: '', ingredients: '', season: 'hele jaar', sportMeal: false, special: false, categories: [] };
 
 function recipeToFormValues(recipe) {
   return {
@@ -12,6 +13,7 @@ function recipeToFormValues(recipe) {
     season: recipe.season,
     sportMeal: recipe.sportMeal,
     special: recipe.special,
+    categories: recipe.categories || [],
   };
 }
 
@@ -25,6 +27,7 @@ function formValuesToRecipe(values) {
     special: values.special,
     // Geen ingrediënten betekent een afhaalmaaltijd (bv. "Sushi afhalen"); mag alleen op do/vr/za.
     takeaway: ingredients.length === 0,
+    categories: values.categories,
   };
 }
 
@@ -59,6 +62,22 @@ const RecipeForm = ({ values, onChange, onSubmit, onCancel, submitLabel }) => (
         onChange={e => onChange({ ...values, special: e.target.checked })}
       /> ⭐ Speciaal (max 1x/4 weken)
     </label>
+    <div className="category-checkboxes">
+      {CATEGORY_DEFINITIONS.map(({ key, label }) => (
+        <label key={key}>
+          <input
+            type="checkbox"
+            checked={values.categories.includes(key)}
+            onChange={e => onChange({
+              ...values,
+              categories: e.target.checked
+                ? [...values.categories, key]
+                : values.categories.filter(c => c !== key),
+            })}
+          /> {label} (max 2x/week)
+        </label>
+      ))}
+    </div>
     <div className="recipe-form-actions">
       <button onClick={onSubmit}>{submitLabel}</button>
       {onCancel && <button onClick={onCancel}>Annuleren</button>}
@@ -135,6 +154,11 @@ const RecipeManager = ({ recipes, onChange }) => {
                   {recipe.sportMeal && <span className="tag tag-sport">🏋️ sport</span>}
                   {recipe.special && <span className="tag tag-special">⭐ speciaal</span>}
                   {recipe.takeaway && <span className="tag tag-takeaway">🥡 afhaal (do/vr/za)</span>}
+                  {(recipe.categories || []).map(cat => (
+                    <span key={cat} className="tag tag-category">
+                      {CATEGORY_DEFINITIONS.find(c => c.key === cat)?.label || cat}
+                    </span>
+                  ))}
                   <span className="tag tag-season">{recipe.season}</span>
                 </div>
                 <div className="recipe-card-actions">
